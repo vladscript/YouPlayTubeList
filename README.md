@@ -9,7 +9,7 @@ Reproducir videos directamente de las URLs de las playlists de Youtube, una y ot
 1. VLC no reproduce videos directamente de las URLs de playlists (hasta el momento).
 2. Después de pegar URLs, una a una, y guardar como lista de VLC, posteriormente no es capaz de reproducir la lista guardada o aparece un error similar a este:
 
-![Error](/Figs/Error.png)
+![Error](/Figs/Error.png "Error")
 
 ## **Antecedentes**
 
@@ -43,7 +43,7 @@ Posteriormente, con otro script de AHK, leer y pegar las URLs en la consola de [
 ## Instrucciones de Uso
 
 ### Sin AHK
-* Después de *descargar* y *configurar*, *ejecutar* *PlayTubeYouList.exe*
+* Después de *descargar* y *configurar*, *ejecutar* *YouPlayTubeList.exe*
 - Clic en Crea para pegar URL de playlist y crear lista (archivo de texto en C:/Usuario/Mi Música).
 - Clic en PLAY para reproducir lista (espera).
 ### Con AHK e Interfaz Gráfica
@@ -65,7 +65,7 @@ Posteriormente, con otro script de AHK, leer y pegar las URLs en la consola de [
 ## Áreas de oportunidad
 * Con algunos videos ocurre: main input error: ES_OUT_SET(GROUP_)PCR is called too late (pts_delay increase to XXXX ms). Workaround: incrementar tiempo de cache en VLC [referencia](https://www.reddit.com/r/linux/comments/20gun9/can_anyone_help_me_set_a_fixed_buffer_on_vlcs/)
 * Algunas URLs no se añaden a la playlist correctamente (tiempo de procesado?)
-* En lugar de usar la consola de VLC, se puede controlar las teclas con AHK en la interfaz gráfica normal pegando una a una las URLs con CTRL+V y tabs para darle a 'Encolar'
+* En lugar de usar la consola de VLC, se puede controlar usando control de teclas (tabs, CTRL+c, CTRL+v) con AHK en la interfaz gráfica normal pegando una a una las URLs obtenidas de youtube-dl.
 * Para abrir más playlists hay que iniciar un VLC nuevo
 
 ## REFERENCIAS
