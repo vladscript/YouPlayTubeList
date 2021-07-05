@@ -1,0 +1,2 @@
+C:\Users\Vladimir\Music\
+Cambia el directorio de arriba por el que hayas utilizado para guardar youtube-dl.exe
