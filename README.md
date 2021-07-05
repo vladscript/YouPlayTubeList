@@ -3,26 +3,27 @@
 ![YouPlayTubeList](/Figs/Logo.png "YouPlayTubeList")
 
 ## **Meta:**
-Reproducir videos directamente de la URL de alguna playlist de Youtube, una y otra vez.
+Reproducir videos directamente de las URLs de las playlists de Youtube, una y otra vez.
 
 ## **Motivación:**
-1. VLC no reproduce videos directamente de las URLs de playlists
-2. Después de pegar URLs, una a una. VLC no es capaz de reproducir la lista guardada o después de un tiempo aparece un error similar a este:
+1. VLC no reproduce videos directamente de las URLs de playlists (hasta el momento).
+2. Después de pegar URLs, una a una, y guardar como lista de VLC, posteriormente no es capaz de reproducir la lista guardada o aparece un error similar a este:
+
 ![Error](/Figs/Error.png)
 
 ## **Antecedentes**
 
-Hay plugins para reproducir playlists en  VLC: [1](https://www.maketecheasier.com/play-youtube-playlist-vlc/) y [2](https://gist.github.com/bastibeckr/16f57b6bdecf27b772d6433b2090bf61). Mi experiencia: no funcionan.
+Hay (o había) plugins para reproducir playlists en  VLC: [1](https://www.maketecheasier.com/play-youtube-playlist-vlc/) y [2](https://gist.github.com/bastibeckr/16f57b6bdecf27b772d6433b2090bf61). Mi experiencia: no funcionan.
 
 ## **Solución**
-Usar Autohotkey [AHK](https://www.autohotkey.com/) para extraer automáticamente URLs de los videos usando [youtube-dl](http://ytdl-org.github.io/youtube-dl/) para guardarlas en archivos de texto. Posteriormente, con otro script de Autohotkey, lee las URLs y las pega en la consola de [VLC](https://www.videolan.org/).
+Usar Autohotkey ([AHK](https://www.autohotkey.com/)) para extraer automáticamente URLs de los videos usando [youtube-dl](http://ytdl-org.github.io/youtube-dl/) para guardarlas en archivos de texto. 
+Posteriormente, con otro script de AHK, leer y pegar las URLs en la consola de [VLC](https://www.videolan.org/).
 
 ### Requisitos:
-- Símbolo del sistema, **CMD** de Windows  [?](https://en.wikipedia.org/wiki/Cmd.exe)
-- **VLC** [descarga](https://www.videolan.org/vlc/download-windows.html)
-- Ejecutable de **youtube-dl** [descarga](http://ytdl-org.github.io/youtube-dl/download.html)
-- **Autohotkey** (AHK) [descarga](https://www.autohotkey.com/download/)
-- Editar: CONFIG.txt [Instalación](#Insta-id)
+- Símbolo del sistema, **CMD** de Windows  [¿Qué es?](https://en.wikipedia.org/wiki/Cmd.exe)
+- **VLC**: [descarga](https://www.videolan.org/vlc/download-windows.html)
+- Ejecutable de **youtube-dl**: [descarga](http://ytdl-org.github.io/youtube-dl/download.html)
+- **Autohotkey** (AHK): [descarga](https://www.autohotkey.com/download/) (opcional).
 - Conexión a Internet
 
 ### Testeado en:
@@ -30,31 +31,39 @@ Usar Autohotkey [AHK](https://www.autohotkey.com/) para extraer automáticamente
 - [x] VLC 3.0.12, 3.0.16 Vetinari
 - [x] Youtube-DL 2021.04.01
 - [x] Autohotkey v1.1.33.09
----
-## Instalación {#Insta-id}
 
-* VLC: descarga e instala configuración default
+---
+
+## Instalación
+* Descarga este repositorio en un folder: C:/Usuario/MyFolder'
+* Descarga e instala VLC con su configuración default.
 * Guardar youtube-dl.exe en, por ejemplo, 'C:/Usuario/Mi Música'
-* Descargar este script en un folder: MyFolder
-* Modificar MyFolder/CONFIG.txt reemplazar el directorio que está con el que donde descargaste youtube-dl.exe (C:/Usuario/Mi Música)
+* Editar 'C:/Usuario/MyFolder/CONFIG.txt' reemplazando 'C:\Users\Vladimir\Music\' por el directorio que contiene youtube-dl.exe: 'C:/Usuario/Mi Música'
 
 ## Instrucciones de Uso
 
 ### Sin AHK
-* Después de descargar y configurar, ejecutar PlayTubeYouList.exe
-### Con AHK & Interfaz Gráfica
-* Después de descargar y configurar, ejecutar PlayTubeYouListVLCDL.ahk
+* Después de *descargar* y *configurar*, *ejecutar* *PlayTubeYouList.exe*
+- Clic en Crea para pegar URL de playlist y crear lista (archivo de texto en C:/Usuario/Mi Música).
+- Clic en PLAY para reproducir lista (espera).
+### Con AHK e Interfaz Gráfica
+* Después de *descargar* y *configurar*, abrir PlayTubeYouListVLCDL.ahk
+- Clic en Crea para pegar URL de playlist y crear lista (archivo de texto en C:/Usuario/Mi Música).
+- Clic en PLAY para reproducir lista (espera).
 ### Con AHK & Sin Interfaz Gráfica
 * Después de descargar y configurar, 
 * Ejecutar GetPlaylist.ahk para crear lista, CTRL+Q
-* Ejecutar PlayPlaylist.ahk para reproducr lista, CTRL+Q
+* Ejecutar PlayPlaylist.ahk para reproducir lista, CTRL+Q
 
+---
 
 ## Recomendaciones
+* No activar otras ventanas durante el cargado de la lista
 * Playlist cortas (hasta decenas de videos ~60)
 * En medida de lo posible guarda videos sin restricción de edad (sólo audio)
 
 ## Áreas de oportunidad
+* Con algunos videos ocurre: main input error: ES_OUT_SET(GROUP_)PCR is called too late (pts_delay increase to XXXX ms). Workaround: incrementar tiempo de cache en VLC [referencia](https://www.reddit.com/r/linux/comments/20gun9/can_anyone_help_me_set_a_fixed_buffer_on_vlcs/)
 * Algunas URLs no se añaden a la playlist correctamente (tiempo de procesado?)
 * En lugar de usar la consola de VLC, se puede controlar las teclas con AHK en la interfaz gráfica normal pegando una a una las URLs con CTRL+V y tabs para darle a 'Encolar'
 * Para abrir más playlists hay que iniciar un VLC nuevo
