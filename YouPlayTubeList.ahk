@@ -105,7 +105,8 @@ else
 	} else{
 	    WinActivate, ahk_pid %pidVLCcw%
 	    ; Send enqueue %YTtemplate%%line%{Enter}
-		Send enqueue %YTtemplate%%line% :network-caching=5000{Enter}
+		; Send enqueue %YTtemplate%%line% :network-caching=5000{Enter}
+		Send enqueue %YTtemplate%%line%
 	    ; Send status{Enter}	
 	    ; Send add %YTtemplate%%line%{Enter}
 	    Sleep, 999

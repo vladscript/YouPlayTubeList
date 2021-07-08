@@ -28,7 +28,9 @@ Posteriormente, con otro script de AHK, leer y pegar las URLs en la consola de [
 
 ### Testeado en:
 - [x] Windows 10
-- [x] VLC 3.0.12, 3.0.16 Vetinari
+- [x] Windows 7
+- [x] VLC 3.0.12 Vetinari
+- [x] VLC 3.0.16 Vetinari
 - [x] Youtube-DL 2021.04.01
 - [x] Autohotkey v1.1.33.09
 
@@ -67,6 +69,7 @@ Posteriormente, con otro script de AHK, leer y pegar las URLs en la consola de [
 * Algunas URLs no se añaden a la playlist correctamente (tiempo de procesado?)
 * En lugar de usar la consola de VLC, se puede controlar usando control de teclas (tabs, CTRL+c, CTRL+v) con AHK en la interfaz gráfica normal pegando una a una las URLs obtenidas de youtube-dl.
 * Para abrir más playlists hay que iniciar un VLC nuevo
+* Crear y Reproducir listas en segundo plano.
 
 ## REFERENCIAS
 
