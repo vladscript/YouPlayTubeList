@@ -45,14 +45,19 @@ Posteriormente, con otro script de AHK, leer y pegar las URLs en la consola de [
 ## Instrucciones de Uso
 
 ### Sin AHK
+
 * Después de *descargar* y *configurar*, *ejecutar* *YouPlayTubeList.exe*
 - Clic en Crea para pegar URL de playlist y crear lista (archivo de texto en C:/Usuario/Mi Música).
 - Clic en PLAY para reproducir lista (espera).
+
 ### Con AHK e Interfaz Gráfica
+
 * Después de *descargar* y *configurar*, abrir PlayTubeYouListVLCDL.ahk
 - Clic en Crea para pegar URL de playlist y crear lista (archivo de texto en C:/Usuario/Mi Música).
 - Clic en PLAY para reproducir lista (espera).
+
 ### Con AHK & Sin Interfaz Gráfica
+
 * Después de descargar y configurar, 
 * Ejecutar GetPlaylist.ahk para crear lista, CTRL+Q
 * Ejecutar PlayPlaylist.ahk para reproducir lista, CTRL+Q
@@ -60,12 +65,17 @@ Posteriormente, con otro script de AHK, leer y pegar las URLs en la consola de [
 ---
 
 ## Recomendaciones
-* No activar otras ventanas durante el cargado de la lista
-* Playlist cortas (hasta decenas de videos ~60)
-* En medida de lo posible guarda videos sin restricción de edad (sólo audio)
 
+* Preferiblemente URLs de **sólo audio**
+* No activar otras ventanas durante el cargado de la lista (copy-paste en progreso)
+* Playlist cortas (hasta decenas de videos ~60)
+* En medida de lo posible guarda videos sin restricción de edad 
+* *SI* ocurre con demasiada frecuencia el error: **vlc access stream error http 403 error** en la consola, aplicar esta [*solución*](https://youtu.be/jg4Og5ra_F0) usando este [código](https://github.com/videolan/vlc/blob/7aa19c4f29f47ff941542c9e06e181df13c213dc/share/lua/playlist/youtube.lua).
 ## Áreas de oportunidad
+
+* Probablemente Youtube deja de aceptar streamings, esto me funcionó (sin ide de por qué o cómo): [Workaround](https://gist.github.com/p3g4asus/597050997e01f8fd1fcf473fe6545a4f)
 * Con algunos videos ocurre: main input error: ES_OUT_SET(GROUP_)PCR is called too late (pts_delay increase to XXXX ms). Workaround: incrementar tiempo de cache en VLC [referencia](https://www.reddit.com/r/linux/comments/20gun9/can_anyone_help_me_set_a_fixed_buffer_on_vlcs/)
+  Esto se corrige siguiendo estas [recomendaciones](https://www.softzone.es/noticias/open-source/ajustes-mejorar-reproduccion-video-vlc/), básicamente 1) **aumentar el caché**  de archivo y de red, 2 **deshabilitar** decodificación acelerada por hardware y 3) Cambiar el **módulo de salida de vídeo**
 * Algunas URLs no se añaden a la playlist correctamente (tiempo de procesado?)
 * En lugar de usar la consola de VLC, se puede controlar usando control de teclas (tabs, CTRL+c, CTRL+v) con AHK en la interfaz gráfica normal pegando una a una las URLs obtenidas de youtube-dl.
 * Para abrir más playlists hay que iniciar un VLC nuevo
@@ -73,6 +83,7 @@ Posteriormente, con otro script de AHK, leer y pegar las URLs en la consola de [
 
 ## REFERENCIAS
 
+* Modified VLC YouTube playlist parsing script [web](https://gist.github.com/p3g4asus/597050997e01f8fd1fcf473fe6545a4f.js)
 * Input Box [video](https://www.youtube.com/watch?v=S_VIpylSleU)
 * Strings [web1](https://www.autohotkey.com/boards/viewtopic.php?t=76052), [web2](https://www.autohotkey.com/boards/viewtopic.php?style=19&t=87441&p=384623)
 * Read Text File in Arrays [video](https://www.youtube.com/watch?v=NtO91mr9a5o),[web](https://www.autohotkey.com/boards/viewtopic.php?t=51025)

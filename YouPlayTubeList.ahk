@@ -7,7 +7,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; GUI
 Gui, Font, cWhite
 ; botoN CREA LISTA
-Gui, Add, Text, x15 y20, Hacer nueva lista
+Gui, Add, Text, x15 y20, Crear lista
 Gui, Add, Button, x35 y40 w50 h20 gLista, Crea
 ; botoN REPRODUCE LISTA
 Gui, Add, Text, x200 y20, Reproducir lista
