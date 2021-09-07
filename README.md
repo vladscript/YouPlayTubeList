@@ -1,4 +1,4 @@
-# **Reproduce Playlists de Youtube en VLC**
+# **Reproduce Playlists de Youtube en VLC en PCs con Windows**
 
 ![YouPlayTubeList](/Figs/Logo.png "YouPlayTubeList")
 
@@ -14,6 +14,11 @@ Reproducir videos directamente de las URLs de las playlists de Youtube, una y ot
 ## **Antecedentes**
 
 Hay (o había) plugins para reproducir playlists en  VLC: [1](https://www.maketecheasier.com/play-youtube-playlist-vlc/) y [2](https://gist.github.com/bastibeckr/16f57b6bdecf27b772d6433b2090bf61). Mi experiencia: no funcionan.
+
+## Alternativas
+
+- [FlagPlayer](https://github.com/Seneral/FlagPlayer)
+- [Tizonia](https://tizonia.org/)
 
 ## **Solución**
 Usar Autohotkey ([AHK](https://www.autohotkey.com/)) para extraer automáticamente URLs de los videos usando [youtube-dl](http://ytdl-org.github.io/youtube-dl/) para guardarlas en archivos de texto. 
@@ -66,14 +71,16 @@ Posteriormente, con otro script de AHK, leer y pegar las URLs en la consola de [
 
 ## Recomendaciones
 
+* error HTTP 403 [lua script](https://gist.github.com/czoins/841509cd43ee23e7286610aa01706734)
 * Preferiblemente URLs de **sólo audio**
 * No activar otras ventanas durante el cargado de la lista (copy-paste en progreso)
 * Playlist cortas (hasta decenas de videos ~60)
 * En medida de lo posible guarda videos sin restricción de edad 
 * *SI* ocurre con demasiada frecuencia el error: **vlc access stream error http 403 error** en la consola, aplicar esta [*solución*](https://youtu.be/jg4Og5ra_F0) usando este [código](https://github.com/videolan/vlc/blob/7aa19c4f29f47ff941542c9e06e181df13c213dc/share/lua/playlist/youtube.lua).
+
 ## Áreas de oportunidad
 
-* Probablemente Youtube deja de aceptar streamings, esto me funcionó (sin ide de por qué o cómo): [Workaround](https://gist.github.com/p3g4asus/597050997e01f8fd1fcf473fe6545a4f)
+* Probablemente Youtube deja de aceptar streamings, esto me funcionó (sin idea de por qué o cómo): [Workaround](https://gist.github.com/p3g4asus/597050997e01f8fd1fcf473fe6545a4f)
 * Con algunos videos ocurre: main input error: ES_OUT_SET(GROUP_)PCR is called too late (pts_delay increase to XXXX ms). Workaround: incrementar tiempo de cache en VLC [referencia](https://www.reddit.com/r/linux/comments/20gun9/can_anyone_help_me_set_a_fixed_buffer_on_vlcs/)
   Esto se corrige siguiendo estas [recomendaciones](https://www.softzone.es/noticias/open-source/ajustes-mejorar-reproduccion-video-vlc/), básicamente 1) **aumentar el caché**  de archivo y de red, 2 **deshabilitar** decodificación acelerada por hardware y 3) Cambiar el **módulo de salida de vídeo**
 * Algunas URLs no se añaden a la playlist correctamente (tiempo de procesado?)
